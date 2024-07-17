@@ -25,17 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (username.length < 3){      // username validation
         isValid = false;
-        messages = "Your username is less than 3 characters";
+        messages.push("Your username is less than 3 characters");
     };
 
-    if (email.includes('@', '.')) {       // email validation
+    if (email.includes('@') || email.includes('.')) {       // email validation
         isValid = false;
-        messages = "Enter a valid email";
+        messages.push("Enter a valid email");
     };
 
     if (password.length < 8) {     // password validation
         isValid = false;
-        messages = "Password must be 8 characters or more"
+        messages.push("Password must be 8 characters or more");
     };
 
 
@@ -44,13 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // feedback display logic
     feedbackDiv.style.display = "block";
+
     if (isValid) {
         feedbackDiv.textContent = "Registration is successful!";
         feedbackDiv.style.color = "#28a745";
-    };
-
-    if (!isValid) {
-        feedbackDiv.innerHTML = `"<br>" ${messages}`;
+    } else {
+        feedbackDiv.innerHTML = messages.join("<br>");
         feedbackDiv.style.color = "#dc3545";
     };
 
