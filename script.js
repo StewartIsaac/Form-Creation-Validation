@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 feedbackDiv.innerHTML = messages.join("<br>");
                 feedbackDiv.style.color = "#dc3545";
+                feedbackDiv.style.backgroundColor = "#ffbaba";
+
             }
         });
     })();
